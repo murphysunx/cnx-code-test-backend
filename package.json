@@ -8,9 +8,10 @@
     "start": "node dist/src/index.js",
     "lint": "eslint . --ext .ts",
     "test:unit": "jest",
-    "deploy:generate": "tsc && npx claudia generate-serverless-express-proxy --express-module dist/app",
+    "compile": "tsc --project tsconfig.build.json",
+    "deploy:generate": "npx claudia generate-serverless-express-proxy --express-module dist/app",
     "deploy:create": "yarn deploy:generate && npx claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1",
-    "deploy:update": "tsc && npx claudia update"
+    "deploy:update": "npx claudia update"
   },
   "license": "MIT",
   "devDependencies": {
