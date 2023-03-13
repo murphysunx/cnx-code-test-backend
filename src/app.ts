@@ -3,6 +3,10 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 
 const app = express();
 
+app.get("/", (req, res) => {
+  res.send("hello world");
+});
+
 app.get(
   "/dealers",
   createProxyMiddleware({
